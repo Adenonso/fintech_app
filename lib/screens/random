@@ -1,0 +1,146 @@
+const MainHomeScreen({super.key});
+
+  @override
+  State<MainHomeScreen> createState() => _MainHomeScreenState();
+}
+
+class _MainHomeScreenState extends State<MainHomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          child: Column(
+            children: [
+              Container(
+                  padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+                  decoration: BoxDecoration(
+                      color: Colors.yellow.shade50,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(30),
+                          bottomRight: Radius.circular(30))),
+                  child: HomeStatusbar()),
+              Expanded(child: HomeRecentTransaction()),
+            ],
+          )),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Transaction',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle, size: 40),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet),
+            label: 'Budget',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+Container(
+          height: 200,
+          child: BarChart(
+            BarChartData(
+              alignment: BarChartAlignment.spaceAround,
+              barGroups: items.map((item) {
+                return BarChartGroupData(
+                  x: items.indexOf(item),
+                  barRods: [
+                    BarChartRodData(
+                      y: item.itemAmount.toDouble(),
+                      colors: [item.iconColor],
+                    ),
+                  ],
+                );
+              }).toList(),
+              titlesData: FlTitlesData(
+                leftTitles: SideTitles(showTitles: true),
+                bottomTitles: SideTitles(
+                  showTitles: true,
+                  getTitles: (double value) {
+                    return items[value.toInt()].itemType;
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),\\
+
+
+floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _showModalBottomSheet(context);
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.deepPurple[800],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+//should be directly inside the scaffold
+void _showModalBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 200,
+          child: Column(
+            children: [
+              ListTile(
+                leading: Icon(Icons.camera_alt),
+                title: Text('Camera'),
+                onTap: () {
+                  // Handle camera action
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.photo),
+                title: Text('Gallery'),
+                onTap: () {
+                  // Handle gallery action
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.file_upload),
+                title: Text('Upload'),
+                onTap: () {
+                  // Handle upload action
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
