@@ -67,7 +67,7 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 40.0),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.pushNamed(context, '/pin_input');
                     },
                     child: Container(
                       width: double.infinity,

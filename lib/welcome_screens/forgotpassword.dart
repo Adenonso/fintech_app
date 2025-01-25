@@ -95,7 +95,7 @@ class _ForgottPasswordState extends State<Forgotpassword> {
   }
 }
 
-///POP UP PAGE T SHOW EMAIL IS COMING
+///POP UP PAGE T0 SHOW EMAIL IS COMING
 class Reset extends StatelessWidget {
   const Reset({super.key});
 

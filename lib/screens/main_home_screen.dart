@@ -42,13 +42,17 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           )),
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.swap_horiz_outlined),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/transaction_main_home');
+                },
+                icon: Icon(Icons.swap_horiz_outlined)),
             label: 'Transaction',
           ),
           BottomNavigationBarItem(
@@ -56,11 +60,16 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pie_chart_rounded),
+            icon: IconButton(
+                onPressed: () {}, icon: Icon(Icons.pie_chart_rounded)),
             label: 'Budget',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: Icon(Icons.person)),
             label: 'Profile',
           ),
         ],

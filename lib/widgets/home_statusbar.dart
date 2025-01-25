@@ -17,9 +17,14 @@ class _HomeStatusbarState extends State<HomeStatusbar> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage('assets/images/man1.jpg'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundImage: AssetImage('assets/images/man1.jpg'),
+                ),
               ),
               Container(
                 child: Row(
@@ -32,10 +37,15 @@ class _HomeStatusbarState extends State<HomeStatusbar> {
                   ],
                 ),
               ),
-              Icon(
-                Icons.notifications,
-                size: 35,
-                color: Colors.deepPurple,
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/notification');
+                },
+                icon: Icon(
+                  Icons.notifications,
+                  size: 35,
+                  color: Colors.deepPurple,
+                ),
               )
             ],
           ),

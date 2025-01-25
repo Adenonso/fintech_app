@@ -165,7 +165,7 @@ class _ExpensePageState extends State<ExpensePage> {
                               fit: BoxFit.cover,
                             ),
                       SizedBox(height: 20),
-                      //SUBMIT BUTTON
+                      //REPEAT TRANSACTION
                       Container(
                           height: 55,
                           width: double.infinity,
