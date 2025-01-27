@@ -15,6 +15,7 @@ import 'package:fintech_app/settings_folder/language.dart';
 import 'package:fintech_app/settings_folder/notification_settings.dart';
 import 'package:fintech_app/settings_folder/security.dart';
 import 'package:fintech_app/settings_folder/theme.dart';
+import 'package:fintech_app/transaction_pages/financial_report.dart';
 import 'package:fintech_app/transaction_pages/pre_financial_report.dart';
 import 'package:fintech_app/transaction_pages/transaction_main_home.dart';
 import 'package:fintech_app/welcome_screens/forgotpassword.dart';
@@ -67,7 +68,8 @@ class MyApp extends StatelessWidget {
         '/edit_account': (context) => EditAccount(),
         '/add_account': (context) => AddAccount(),
         '/transaction_main_home': (context) => TransactionMainHome(),
-        '/pre_financial_home': (context) => PreFinancialReport()
+        '/pre_financial_report': (context) => PreFinancialReport(),
+        '/financial_report': (context) => FinancialReportPage(),
       },
     );
   }
