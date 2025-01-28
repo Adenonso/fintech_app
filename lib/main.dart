@@ -2,10 +2,15 @@ import 'package:fintech_app/accounts_pages/account.dart';
 import 'package:fintech_app/accounts_pages/add_account.dart';
 import 'package:fintech_app/accounts_pages/detailaccount.dart';
 import 'package:fintech_app/accounts_pages/edit_account.dart';
+import 'package:fintech_app/budgets_pages/budget_main.dart';
+import 'package:fintech_app/budgets_pages/create_budget.dart';
+import 'package:fintech_app/budgets_pages/detail_budget.dart';
+import 'package:fintech_app/budgets_pages/edit_budget.dart';
 import 'package:fintech_app/screens/expense.dart';
 import 'package:fintech_app/screens/export.dart';
 import 'package:fintech_app/screens/income.dart';
 import 'package:fintech_app/screens/main_home_screen.dart';
+import 'package:fintech_app/screens/main_screen.dart';
 import 'package:fintech_app/screens/notification.dart';
 import 'package:fintech_app/screens/profile.dart';
 import 'package:fintech_app/screens/settings.dart';
@@ -43,8 +48,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: MainHomeScreen(),
+      home: MainScreen(),
       routes: {
+        '/main_home_screen': (context) => MainHomeScreen(),
         '/expense': (context) => ExpensePage(),
         '/income': (context) => IncomePage(),
         '/transfer': (context) => TransferPage(),
@@ -70,6 +76,10 @@ class MyApp extends StatelessWidget {
         '/transaction_main_home': (context) => TransactionMainHome(),
         '/pre_financial_report': (context) => PreFinancialReport(),
         '/financial_report': (context) => FinancialReportPage(),
+        '/budget_main': (context) => BudgetMain(),
+        '/create_budget': (context) => CreateBudget(),
+        '/detail_budget': (context) => DetailBudget(),
+        '/edit_budget': (context) => EditBudget()
       },
     );
   }

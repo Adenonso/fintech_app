@@ -10,7 +10,7 @@ class MainHomeScreen extends StatefulWidget {
 }
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
-  int _selectedIndex = 0;
+  // int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,52 +40,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               Expanded(child: HomeRecentTransaction()),
             ],
           )),
-      bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: true,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/transaction_main_home');
-                },
-                icon: Icon(Icons.swap_horiz_outlined)),
-            label: 'Transaction',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(null),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: IconButton(
-                onPressed: () {}, icon: Icon(Icons.pie_chart_rounded)),
-            label: 'Budget',
-          ),
-          BottomNavigationBarItem(
-            icon: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/profile');
-                },
-                icon: Icon(Icons.person)),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple[800],
-        unselectedItemColor: Colors.grey,
-        selectedIconTheme: IconThemeData(size: 24),
-        unselectedIconTheme: IconThemeData(size: 20),
-        // unselectedLabelStyle: TextStyle(inherit: true, color: Colors.black),
-
-        onTap: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepPurple,
         onPressed: () {
